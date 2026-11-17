@@ -1,0 +1,12 @@
+flowchart TD
+  agent["Agent: publish, share, comments"] -->|"publish token"| api["/api/* and /mcp"]
+  member["Team member"] --> access["Cloudflare Access: emailed code"]
+  access --> private["/ and /page/"]
+  visitor["Visitor"] --> public["/p/page/ (public page)"]
+  visitor --> shared["/s/token/page/ (share link)"]
+  api --> worker["The Worker"]
+  private -->|"Worker checks the Access token again"| worker
+  public -->|"page must be public"| worker
+  shared -->|"token must match a live link"| worker
+  worker --> d1[("D1: pages, versions, links, comments")]
+  worker --> r2[("R2: files by hash")]

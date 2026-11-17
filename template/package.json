@@ -1,0 +1,32 @@
+{
+  "name": "crit-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "publish": "bun scripts/publish.ts",
+    "share": "bun scripts/share.ts",
+    "visibility": "bun scripts/visibility.ts",
+    "pages": "bun scripts/pages.ts",
+    "comments": "bun scripts/comments.ts",
+    "keep": "bun scripts/keep.ts",
+    "deploy": "bun scripts/deploy.ts",
+    "build:client": "bun scripts/build-client.ts",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run --exclude \"**/*.native.test.ts\"",
+    "test:native": "ALCHEMY_TEST_DEV=1 bun test test/Journey.native.test.ts"
+  },
+  "devDependencies": {
+    "@alchemy.run/cloudflare": "2.0.0-beta.85",
+    "@alchemy.run/test": "2.0.0-beta.85",
+    "@cloudflare/workers-types": "5.20261104.1",
+    "@effect/platform-bun": "4.1.2",
+    "@effect/platform-node": "4.1.2",
+    "@types/bun": "1.4.4",
+    "@types/node": "24.19.2",
+    "alchemy": "2.0.0-beta.85",
+    "effect": "4.1.2",
+    "pele": "1.13.0",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}

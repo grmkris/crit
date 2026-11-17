@@ -1,0 +1,43 @@
+{
+  "name": "crit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A recipe for a team site on your own Cloudflare account, where coding agents publish pages and people comment on them",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grmkris/crit.git"
+  },
+  "workspaces": [
+    "examples/*",
+    "template"
+  ],
+  "type": "module",
+  "scripts": {
+    "format": "oxfmt -c oxfmt.config.ts",
+    "format:check": "oxfmt -c oxfmt.config.ts --check",
+    "lint": "bun tools/oxlint.ts -c oxlint.config.ts . --max-warnings 0",
+    "typecheck": "bun tools/typecheck.ts",
+    "unused:check": "knip --no-progress",
+    "test:unit": "bun run --cwd template test:unit",
+    "test:native": "bun run --cwd template test:native",
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun run unused:check && bun run duplicates:check && bun run test:unit",
+    "duplicates:check": "jscpd --config .jscpd.json"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261104.1",
+    "@types/bun": "1.4.4",
+    "@types/node": "24.19.2",
+    "@yielded/effect-tsrs": "0.2.3",
+    "effect": "4.1.2",
+    "jscpd": "5.4.2",
+    "knip": "6.44.1",
+    "lefthook": "2.2.2",
+    "oxfmt": "0.76.0",
+    "oxlint": "1.91.0",
+    "oxlint-plugin-complexity": "4.1.0",
+    "tsrs": "0.21.0-ts7.1.0-beta",
+    "typescript": "7.0.2"
+  },
+  "packageManager": "bun@1.4.4"
+}

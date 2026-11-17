@@ -1,0 +1,9 @@
+{
+  "threshold": 0,
+  "minLines": 8,
+  "minTokens": 50,
+  "format": ["typescript"],
+  "path": ["template", "examples", "tools"],
+  "ignore": ["**/node_modules/**", "**/dist/**", "**/.alchemy/**", "template/pages/**"],
+  "reporters": ["console"]
+}

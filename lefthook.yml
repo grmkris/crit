@@ -1,0 +1,12 @@
+# The pre-commit fence: cheap gates only. Install once with `bunx lefthook install`. Never bypass it.
+no_auto_install: true
+
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{ts,js,json,jsonc,md,yml,yaml}'
+      run: bunx oxfmt -c oxfmt.config.ts --check --no-error-on-unmatched-pattern {staged_files}
+    lint:
+      glob: '*.ts'
+      run: bun tools/oxlint.ts -c oxlint.config.ts --max-warnings 0 {staged_files}

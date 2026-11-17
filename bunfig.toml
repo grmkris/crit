@@ -1,0 +1,5 @@
+[install]
+# Exact pins. Hoisted, so Alchemy and its test harness resolve one copy (isolated installs made
+# several peer-variant copies whose types do not unify).
+exact = true
+linker = "hoisted"
